@@ -8,7 +8,7 @@ if str(ROOT) not in sys.path:
 import streamlit as st
 from PIL import Image 
 
-black_logo = Image.open('../data/logo.png')
+black_logo = Image.open('./data/logo.png')
 
 st.set_page_config(
     page_title="Market Scavenger Hunt",
@@ -31,7 +31,7 @@ st.markdown(
 col1, col2 = st.columns([1, 9])
 
 with col1:
-    st.image("../data/logo.png", width=100)
+    st.image("./data/logo.png", width=100)
 
 with col2:
     st.markdown(

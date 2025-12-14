@@ -17,12 +17,12 @@ from scrapper.sp500_fechas import load_sp500
 from scrapper.symbols import obtener_ticker
 
 ICONS = {
-    "1": "../icons/layout_1.png",
-    "2v": "../icons/layout_2_vertical.png",
-    "2h": "../icons/layout_2_horizontal.png",
-    "3_lr": "../icons/layout_3.png",     
-    "3_tb": "../icons/layout_3_alt.png",  
-    "4": "../icons/layout_4.png",
+    "1": "./icons/layout_1.png",
+    "2v": "./icons/layout_2_vertical.png",
+    "2h": "./icons/layout_2_horizontal.png",
+    "3_lr": "./icons/layout_3.png",     
+    "3_tb": "./icons/layout_3_alt.png",  
+    "4": "./icons/layout_4.png",
 }
 
 OPCIONES_INDICADORES = ["SMA20", "SMA50", "Volumen", "RSI", "MACD"]
