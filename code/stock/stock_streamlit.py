@@ -16,13 +16,34 @@ from plotly.subplots import make_subplots
 from scrapper.sp500_fechas import load_sp500
 from scrapper.symbols import obtener_ticker
 
+from pathlib import Path
+
+APP_DIR = Path(__file__).resolve().parent
+ROOT_DIR = APP_DIR.parent  # ajusta si tu estructura no es code/...
+
+def asset_path(*parts: str) -> str:
+    """
+    Devuelve una ruta existente (como str) buscando en varias carpetas típicas.
+    Si no existe, devuelve la primera ruta candidata (para debug).
+    """
+    candidates = [
+        APP_DIR.joinpath(*parts),                     # code/icons/...
+        ROOT_DIR.joinpath(*parts),                    # icons/...
+        APP_DIR.joinpath("assets", *parts),           # code/assets/icons/...
+        ROOT_DIR.joinpath("assets", *parts),          # assets/icons/...
+    ]
+    for p in candidates:
+        if p.exists():
+            return str(p)
+    return str(candidates[0])  # no rompe; te sirve para ver qué esperaba
+
 ICONS = {
-    "1": "./icons/layout_1.png",
-    "2v": "./icons/layout_2_vertical.png",
-    "2h": "./icons/layout_2_horizontal.png",
-    "3_lr": "./icons/layout_3.png",     
-    "3_tb": "./icons/layout_3_alt.png",  
-    "4": "./icons/layout_4.png",
+    "1":   asset_path("icons", "layout_1.png"),
+    "2v":  asset_path("icons", "layout_2_vertical.png"),
+    "2h":  asset_path("icons", "layout_2_horizontal.png"),
+    "3_lr":asset_path("icons", "layout_3.png"),
+    "3_tb":asset_path("icons", "layout_3_alt.png"),
+    "4":   asset_path("icons", "layout_4.png"),
 }
 
 OPCIONES_INDICADORES = ["SMA20", "SMA50", "Volumen", "RSI", "MACD"]
