@@ -1,6 +1,28 @@
 import streamlit as st
 from PIL import Image 
 
+from pathlib import Path
+
+APP_DIR = Path(__file__).resolve().parent          # .../todo-app/code
+ROOT_DIR = APP_DIR.parent                           # .../todo-app
+
+# Candidatos típicos (elige el que coincida con tu repo)
+CANDIDATES = [
+    APP_DIR / "data" / "logo.png",                  # code/data/logo.png
+    ROOT_DIR / "data" / "logo.png"               # data/logo.png
+]
+
+logo_path = next((p for p in CANDIDATES if p.exists()), None)
+
+if logo_path is None:
+    st.warning(
+        "No se encontró el logo. Rutas comprobadas:\n" +
+        "\n".join(f"- {p}" for p in CANDIDATES)
+    )
+    black_logo = None
+else:
+    black_logo = Image.open(logo_path)
+
 black_logo = Image.open('./data/logo.png')
 
 st.set_page_config(
