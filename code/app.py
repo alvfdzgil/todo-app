@@ -23,8 +23,6 @@ if logo_path is None:
 else:
     black_logo = Image.open(logo_path)
 
-black_logo = Image.open('./data/logo.png')
-
 st.set_page_config(
     page_title="Market Scavenger Hunt",
     page_icon=black_logo,
@@ -46,7 +44,7 @@ st.markdown(
 col1, col2 = st.columns([1, 9])
 
 with col1:
-    st.image("./data/logo.png", width=100)
+    st.image(black_logo, width=100)
 
 with col2:
     st.markdown(
