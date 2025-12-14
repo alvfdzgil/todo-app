@@ -96,6 +96,8 @@ def load_data(
     data.set_index("Date", inplace=True)
 
     return data
+
+"""
 if __name__ == "__main__":
     df_sp500 = scrape_series_data(verbose=True)
-    print(df_sp500.head())
+"""

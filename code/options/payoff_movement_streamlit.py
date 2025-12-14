@@ -110,7 +110,7 @@ def payoff_long_box_from_rows(row_call_K1, row_call_K2,
 def dashboard_app_movement():
     st.title("⚡ Estrategias de movimiento fuerte")
 
-    df_sp500 = scrape_series_data()
+    df_sp500 = scrape_series_data(verbose=False)
     Empresas = df_sp500['Company'].iloc[1:5].tolist()
     TICKERS = df_sp500['Symbol'].iloc[1:5].tolist()
 

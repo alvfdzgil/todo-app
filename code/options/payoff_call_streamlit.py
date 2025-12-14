@@ -165,7 +165,7 @@ def dashboard_app_call():
 
     st.title("📈 Payoffs de estrategias con opciones CALL")
 
-    df_sp500 = scrape_series_data()
+    df_sp500 = scrape_series_data(verbose=False)
     Empresas = df_sp500['Company'].tolist()
     TICKERS = df_sp500['Symbol'].tolist()
 

@@ -81,14 +81,6 @@ def best_otm_call(df, spot):
         df["Volatilidad implícita"].abs()
     )
 
-    print(df[[
-        "Precio de ejercicio",
-        "Último precio",
-        "Volatilidad implícita",
-        "distance",
-        "score"
-    ]])
-
     return df.sort_values("score", ascending=True).iloc[0]
 
 
@@ -125,14 +117,6 @@ def best_otm_put(df, spot):
         df["Último precio"] *
         df["Volatilidad implícita"].abs()
     )
-
-    print(df[[
-        "Precio de ejercicio",
-        "Último precio",
-        "Volatilidad implícita",
-        "distance",
-        "score"
-    ]])
 
     return df.sort_values("score", ascending=True).iloc[0]
 

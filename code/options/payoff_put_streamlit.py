@@ -179,7 +179,7 @@ def payoff_put_backspread_from_rows(row_ATM, row_OTM,
 def dashboard_app_put():
     st.title("📉 Payoffs de estrategias con opciones PUT")
 
-    df_sp500 = scrape_series_data()
+    df_sp500 = scrape_series_data(verbose=False)
     Empresas = df_sp500['Company'].iloc[1:5].tolist()
     TICKERS = df_sp500['Symbol'].iloc[1:5].tolist()
 

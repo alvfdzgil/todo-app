@@ -106,8 +106,6 @@ def load_sp500():
     sp500 = sp500.iloc[:, 1:]
     sp500.columns = ['activo','Capi. USD', 'Variación', 'Varia. 5d.', 'Varia. 1 de ene.']
     sp500 = sp500.dropna(how='all')
-    print(sp500)
-    print(f'Total activos S&P 500: {len(sp500)}')
     sp500['Capi. USD'] = sp500['Capi. USD'].apply(capitalizacion_to_float)
     sp500['Variación'] = sp500['Variación'].apply(percentage_to_float)
     sp500['Varia. 5d.'] = sp500['Varia. 5d.'].apply(percentage_to_float)

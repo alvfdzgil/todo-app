@@ -235,7 +235,7 @@ def dashboard_app_calendar():
     st.title("📆 Estrategias laterales: Calendar & Double Diagonal")
 
     # Por si quieres usar los tickers del SP500
-    df_sp500 = scrape_series_data()
+    df_sp500 = scrape_series_data(verbose=False)
     Empresas = df_sp500['Company'].tolist()
     TICKERS = df_sp500['Symbol'].tolist()
 
